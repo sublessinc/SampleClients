@@ -1,4 +1,4 @@
-#PHP Client
+# PHP Client
 This example demonstrates both the process for pushing user activity back to subless as they visit creators, and the process for registering creator accounts to subless accounts
 
 ## Prerequisites 
