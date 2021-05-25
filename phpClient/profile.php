@@ -11,7 +11,7 @@ Welcome to your profile
 $username = 'TestUser';
 $clientId = 'PARTNER CLIENT ID';
 $clientSecret = 'PARTNER CLIENT SECRET'
-$sublessPaymentsUrl = 'http://pay.subless.com';
+$sublessPaymentsUrl = 'https://pay.subless.com';
 $sublessAuthuthUrl = 'https://subless.auth.us-east-1.amazoncognito.com';
 ?>
 
