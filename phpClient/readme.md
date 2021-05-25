@@ -18,7 +18,7 @@ This example demonstrates both the process for pushing user activity back to sub
 
 
 ## Home.php
-home.php simply loads in the contents of subless.js. That will trigger a login, and once logged in, will call the "hit" api on each page load with the user's token. This allows subless to payout to each creator accessed by said user
+home.php simply loads in the contents of subless.js. That will trigger a login, and once logged in, will call the "hit" api on each page load with the user's token. Subless uses this to pay out to the partners whom that user visits.
 
 ## Profile.php
 profile.php first requests an access token from the authorization server, then uses that to request a registration link for the user defined by the username variable
