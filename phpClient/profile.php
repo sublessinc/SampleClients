@@ -31,7 +31,7 @@ $json = json_decode((string)$authRes->getBody(), true);
 $token = $json['access_token'];
 
 // Request a one time registration link for a given user
-$linkRes = $client->get($sublessPaymentsUrl . '/api/Partner?username='.$username, [
+$linkRes = $client->post($sublessPaymentsUrl . '/api/Partner/CreatorRegister?username='.$username, [
     'headers' => ['Authorization' => 'Bearer ' . $token]
 ]);
 $activationCode = $linkRes->getBody();
