@@ -42,7 +42,7 @@ $activationCode = $linkRes->getBody();
 <a href="
 <?php
 echo $sublessPaymentsUrl;
-echo "?activation=";
+echo "/login?activation=";
 echo $activationCode; 
 ?>"
 >Click here to activate your subless account</a>
