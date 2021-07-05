@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Subless PHP sample</title>
-    <script src="http://localhost:7070/dist/subless.js"></script>
+    <script src="https://pay.subless.com/dist/subless.js"></script>
 </head>
 <body>
 Welcome to your profile
@@ -12,7 +12,7 @@ Welcome to your profile
 $username = 'TestUser2';
 $clientId = '3ifutrgss29mug0n26r176u5k3';
 $clientSecret = '1m91oc6emnr1r0fh946b6s7bq9q3ujf2ufa4k38oqss7gnqjouag';
-$sublessPaymentsUrl = 'http://localhost:4200';
+$sublessPaymentsUrl = 'https://pay.subless.com';
 $sublessAuthuthUrl = 'https://subless.auth.us-east-1.amazoncognito.com';
 ?>
 
