@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Subless PHP sample</title>
+    <script src="https://pay.subless.com/dist/subless.js"></script>
 </head>
 <body>
 Welcome to your profile
@@ -10,13 +11,13 @@ Welcome to your profile
 // Define configuration
 $username = 'TestUser';
 $clientId = 'PARTNER CLIENT ID';
-$clientSecret = 'PARTNER CLIENT SECRET'
-$sublessPaymentsUrl = 'https://pay.subless.com';
+$clientSecret = 'PARTNER CLIENT SECRET';
+$sublessPaymentsUrl = 'https://pay.subless.com/';
 $sublessAuthuthUrl = 'https://subless.auth.us-east-1.amazoncognito.com';
 ?>
 
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . './../vendor/autoload.php';
 // Request a client credentials token
 $client = new GuzzleHttp\Client();
 $authRes = $client->post($sublessAuthuthUrl . '/oauth2/token', [
