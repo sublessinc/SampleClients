@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Subless PHP sample</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.js"
+        type="text/javascript"></script>
     <script src="https://pay.subless.com/dist/subless.js"></script>
 </head>
 <body>
@@ -12,8 +14,8 @@ Welcome to your profile
 $username = 'TestUser';
 $clientId = 'PARTNER CLIENT ID';
 $clientSecret = 'PARTNER CLIENT SECRET';
-$sublessPaymentsUrl = 'https://pay.subless.com/';
-$sublessAuthuthUrl = 'https://subless.auth.us-east-1.amazoncognito.com';
+$sublessPaymentsUrl = 'https://pay.subless.com';
+$sublessAuthuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
 ?>
 
 <?php
