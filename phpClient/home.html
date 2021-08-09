@@ -13,8 +13,17 @@
 <body>
     Welcome to the subless php sample client.
     <br />
-    <button onclick="sublessLogin()">Login to subless</button>
+    <button id="btnLogin" onclick="sublessLogin()">Login to subless</button>
+    <button id="btnLogout" onclick="sublessLogout()">Logout of subless</button>
     <a href='./profile/TestUser.php'>View your profile</a>
+    <script type="text/javascript" async>
+    async function loginVisible() {
+        let loggedIn = await subless_LoggedIn();
+        document.getElementById('btnLogin').hidden = loggedIn;
+        document.getElementById('btnLogout').hidden = !loggedIn;    
+    }
+    loginVisible();
+    </script>
 </body>
 
 </html>

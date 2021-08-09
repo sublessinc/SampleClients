@@ -50,6 +50,6 @@ echo $activationCode;
 ?>"
 >Click here to activate your subless account</a>
 <br/>
-<a href='./home'>Return Home</a>
+<a href='../home'>Return Home</a>
 </body>
 </html>
