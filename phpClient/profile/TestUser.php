@@ -33,8 +33,10 @@ $authRes = $client->post($sublessAuthuthUrl . '/oauth2/token', [
 $json = json_decode((string)$authRes->getBody(), true);
 $token = $json['access_token'];
 
+
+
 // Request a one time registration link for a given user
-$linkRes = $client->post($sublessPaymentsUrl . '/api/Partner/CreatorRegister?username='.$username, [
+$linkRes = $client->post($sublessPaymentsUrl . '/api/Partner/CreatorRegister?username=' . $username, [
     'headers' => ['Authorization' => 'Bearer ' . $token]
 ]);
 $activationCode = $linkRes->getBody();
@@ -44,9 +46,13 @@ $activationCode = $linkRes->getBody();
 <!-- Display registration link on profile page -->
 <a href="
 <?php
+//provide a location for the user to return to after registration
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$postActivationRedirect = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 echo $sublessPaymentsUrl;
-echo "/login?activation=";
-echo $activationCode; 
+echo "/login?activation=" . $activationCode .'&postActivationRedirect=' . $postActivationRedirect;
+//A redirection back to postActivationRedirect will occur after the subless creator profile is completed.
+//The redirect will follow the format: [postActivationRedirect]?sublessId=[sublessId]&creatorId=[username]"
 ?>"
 >Click here to activate your subless account</a>
 <br/>
