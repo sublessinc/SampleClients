@@ -1,28 +1,13 @@
 import requests
 from requests.api import head
 from requests.auth import HTTPBasicAuth
-import json
-
-staticHeader = \
-"""
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Subless Python sample</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.js"
-        type="text/javascript"></script>
-    <script src="https://pay.subless.com/dist/subless.js"></script>
-</head>
-<body>
-Welcome to your profile
-<br/>
-"""
-
+from flask import render_template
 
 # THESE TWO VALUES will be provided to you as part
-# of your subless account.
+# of your subless account. See: readme.md
 clientId = 'Your client ID';
 clientSecret = 'Your client secret';
+
 
 username = 'TestUser';
 sublessPaymentsUrl = 'https://pay.subless.com';
@@ -38,6 +23,9 @@ def GetAClientCredentialsToken():
                 'grant_type' : 'client_credentials'
         }
     )
+
+    if (400 == r.status_code):
+        raise Exception("SUBLESS ERROR: You've specified an invalid client id or secret while trying to authenticate.")
 
     token = r.json()["access_token"]
     return token
@@ -58,11 +46,7 @@ def GenerateOneTimeLink(activationCode):
     return finalLink
 
 def GenerateUserProfile():
-    html = staticHeader
     clientCredentialsToken = GetAClientCredentialsToken()
     activationCode = RequestOneTimeRegistrationActivationCode(clientCredentialsToken)
     userRegistrationLink = GenerateOneTimeLink(activationCode)
-    html += "<br/>"
-    html += "<br/>"
-    html += userRegistrationLink
-    return html
+    return render_template('profile.html', creator_link=userRegistrationLink)

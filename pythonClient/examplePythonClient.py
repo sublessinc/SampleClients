@@ -11,3 +11,7 @@ def index():
 @app.route("/profile/TestUser")
 def TestUser():
     return testProfile.GenerateUserProfile()
+
+@app.errorhandler(Exception)
+def HandleException(e):
+    return str(e)
