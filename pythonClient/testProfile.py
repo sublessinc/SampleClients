@@ -19,14 +19,23 @@ def GetAClientCredentialsToken():
     global clientSecret
     global clientId
     if clientId == 'Your client ID':
-        clientId = os.getenv("CLIENT_ID")
+        clientId = os.getenv("ClientId")
 
     if clientSecret == 'Your client secret':
-        clientSecret = os.getenv("CLIENT_SECRET")
+        clientSecret = os.getenv("ClientSecret")
 
-    print("clientid is " + str(clientId))
-    print("clientsecret is " + str(clientSecret))
-    # Request a client credentials token
+    sublessAuthUrl = os.getenv("issuerUrl")
+    if sublessAuthUrl == None:
+        sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
+
+    sublessPaymentsUrl = os.getenv("SublessUrl")
+    if sublessPaymentsUrl == None:
+        sublessPaymentsUrl = 'https://pay.subless.com';
+
+    sublessPaymentsUrl = os.getenv("SublessUrl")
+    if sublessPaymentsUrl == None:
+        sublessPaymentsUrl = 'https://pay.subless.com';
+
     r = requests.post(sublessAuthUrl + "/oauth2/token",\
         auth = HTTPBasicAuth(clientId, clientSecret),
         headers = {'Content-Type' : 'application/x-www-form-urlencoded'},
@@ -51,7 +60,7 @@ def RequestOneTimeRegistrationActivationCode(bearerToken):
     return activationCode
 
 def GenerateOneTimeLink(activationCode):
-    protocol = "http://"
+    protocol = "https://"
     postActivationRedirect = protocol + "localhost:5000/"
     finalLink = sublessPaymentsUrl + "/login?activation=" + activationCode +\
         "&postActivationRedirect=" + postActivationRedirect
