@@ -22,7 +22,7 @@
     <a href='./profile/TestUser.php'>View your profile</a>
     <script type="text/javascript" async>
         async function loginVisible() {
-            // Check whether the users is currently logged in to assign 
+            // Check whether the user is currently logged in to assign 
             let loggedIn = await subless.subless_LoggedIn();
             document.getElementById('btnLogin').hidden = loggedIn;
             document.getElementById('btnLogout').hidden = !loggedIn;
