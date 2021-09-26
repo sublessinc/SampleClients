@@ -2,9 +2,8 @@
 <html>
 <head>
     <title>Subless PHP sample</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.js"
-        type="text/javascript"></script>
-    <script src="https://pay.subless.com/dist/subless.js"></script>
+    <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
+    <script type="module" src= 'https://dev.subless.com/dist/subless.js'></script>
 </head>
 <body>
 Welcome to your profile
