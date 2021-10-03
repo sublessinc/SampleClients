@@ -4,25 +4,29 @@
 <head>
     <title>Subless PHP sample</title>
     <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.js"
-        type="text/javascript"></script>
-    <script src="https://pay.subless.com/dist/subless.js" type="text/javascript"></script>
+    <script type="module">
+        import Subless from 'https://dev.subless.com/dist/subless.js';
+        //Make the subless object available to the rest of your javascript
+        window.subless = Subless;
+        //Perform any actions you want to fire after subless is loaded into the page
+        loginVisible();
+    </script>
 
 </head>
 
 <body>
     Welcome to the subless php sample client.
     <br />
-    <button id="btnLogin" onclick="sublessLogin()">Login to subless</button>
-    <button id="btnLogout" onclick="sublessLogout()">Logout of subless</button>
+    <button id="btnLogin" onclick="subless.sublessLogin()">Login to subless</button>
+    <button id="btnLogout" onclick="subless.sublessLogout()">Logout of subless</button>
     <a href='./profile/TestUser.php'>View your profile</a>
     <script type="text/javascript" async>
-    async function loginVisible() {
-        let loggedIn = await subless_LoggedIn();
-        document.getElementById('btnLogin').hidden = loggedIn;
-        document.getElementById('btnLogout').hidden = !loggedIn;    
-    }
-    loginVisible();
+        async function loginVisible() {
+            // Check whether the user is currently logged in to assign 
+            let loggedIn = await subless.subless_LoggedIn();
+            document.getElementById('btnLogin').hidden = loggedIn;
+            document.getElementById('btnLogout').hidden = !loggedIn;
+        }
     </script>
 </body>
 
