@@ -42,7 +42,7 @@ Alternatively, to run using Docker:
     # is important because "localhost:5000" is the approved redirect URL. If you run
     # without --net=host, you will succesfully run the client, but all redirects will
     # fail.
-    docker run --net=host subless_example
+    docker run --ports 5000:5000 subless_example
     ```
 
 From here, navigating to http://localhost:5000/ should bring you to the demo.
