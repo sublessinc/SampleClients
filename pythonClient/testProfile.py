@@ -18,23 +18,27 @@ sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
 def GetAClientCredentialsToken():
     global clientSecret
     global clientId
+    global sublessPaymentsUrl
+    global sublessAuthUrl
     if clientId == 'Your client ID':
         clientId = os.getenv("ClientId")
+    print(f'ClientId {clientId}', flush=True);
 
     if clientSecret == 'Your client secret':
         clientSecret = os.getenv("ClientSecret")
+    print(f'ClientSecret {clientSecret}', flush=True);
 
     sublessAuthUrl = os.getenv("issuerUrl")
     if sublessAuthUrl == None:
         sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
+    print(f'sublessAuthUrl {sublessAuthUrl}', flush=True);
+
 
     sublessPaymentsUrl = os.getenv("SublessUrl")
     if sublessPaymentsUrl == None:
         sublessPaymentsUrl = 'https://pay.subless.com';
 
-    sublessPaymentsUrl = os.getenv("SublessUrl")
-    if sublessPaymentsUrl == None:
-        sublessPaymentsUrl = 'https://pay.subless.com';
+    print(f'sublessPaymentsUrl {sublessPaymentsUrl}', flush=True);
 
     r = requests.post(sublessAuthUrl + "/oauth2/token",\
         auth = HTTPBasicAuth(clientId, clientSecret),
@@ -44,6 +48,8 @@ def GetAClientCredentialsToken():
                 'grant_type' : 'client_credentials'
         }
     )
+
+    print(f'Auth response {r}', flush=True);
 
     if (400 == r.status_code):
         raise Exception("SUBLESS ERROR: You've specified an invalid client id or secret while trying to authenticate.")
@@ -55,6 +61,7 @@ def RequestOneTimeRegistrationActivationCode(bearerToken):
     r = requests.post(sublessPaymentsUrl + "/api/Partner/CreatorRegister?username=" + username,
         headers = {"Authorization" : "Bearer " + bearerToken}
     )
+    print(f'Client registration response {r}', flush=True);
 
     activationCode = r.text
     return activationCode
