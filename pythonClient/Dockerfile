@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.10
 
 COPY resources.txt resources.txt
 RUN pip install -r resources.txt
