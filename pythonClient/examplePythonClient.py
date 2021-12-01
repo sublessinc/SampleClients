@@ -13,8 +13,11 @@ def index():
 def TestUser():
     return testProfile.GenerateUserProfile()
 
+# To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
+# Once you've set up and deployed your API, register the URI on your subless partner account page.
 @app.route('/webhook', methods=['POST'])
 def creatorStatusWebhook():
+    # A Json object will be sent with the properties below
     returnedCreator = json.loads(request.data)
     print(returnedCreator)
     print("Creator Email: " + returnedCreator['email'], flush=True)
