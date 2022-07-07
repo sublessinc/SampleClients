@@ -15,27 +15,28 @@ Requirements:
 
 First, edit `testProfile.py`. Inside, change the two variable declarations:
 
-    ```python
+```python
     clientId = 'Your client ID';
     clientSecret = 'Your client secret';
+```
 
 to reflect your clientID and secret, e.g.
 
-    ```python
+```python
     # garbage example IDS
     clientId = 'abvrao8q542mkjm16ogt01kd33';
     clientSecret = 'lhfdjlfhul4hr4tu4t4bh4vgtcsueon2984nusxv4324bvfk2345';
-    ```
+```
 
 Then, to run on your local machine directly, run the commands:
 
-    ```shell
+```shell
     pip install -r resources.txt
     export FLASK_APP=examplePythonClient
     flask run
-    ```
+```
 Alternatively, to run using Docker:
-    ```shell
+```shell
     docker build -t subless_example .
 
     # Note: we use --net=host here so that the running address is "localhost", which
@@ -43,6 +44,6 @@ Alternatively, to run using Docker:
     # without --net=host, you will succesfully run the client, but all redirects will
     # fail.
     docker run -p 5000:5000 subless_example
-    ```
+```
 
 From here, navigating to http://localhost:5000/ should bring you to the demo.
