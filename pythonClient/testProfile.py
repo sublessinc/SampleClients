@@ -12,7 +12,7 @@ clientId = 'Your client ID';
 clientSecret = 'Your client secret';
 
 username = 'TestUser';
-sublessPaymentsUrl = 'https://pay.subless.com';
+sublessPaymentsUrl = 'https://app.subless.com';
 sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
 
 def GetAClientCredentialsToken():
@@ -46,7 +46,8 @@ def GetAClientCredentialsToken():
         params = {
                 'scope' : sublessPaymentsUrl + "/creator.register",
                 'grant_type' : 'client_credentials'
-        }
+        },
+        verify=False #Do not disable verification on public servers
     )
 
     print(f'Auth response {r}', flush=True);
@@ -59,7 +60,8 @@ def GetAClientCredentialsToken():
 
 def RequestOneTimeRegistrationActivationCode(bearerToken):
     r = requests.post(sublessPaymentsUrl + "/api/Partner/CreatorRegister?username=" + username,
-        headers = {"Authorization" : "Bearer " + bearerToken}
+        headers = {"Authorization" : "Bearer " + bearerToken}, 
+        verify=False #Do not disable verification on public servers
     )
     print(f'Client registration response {r}', flush=True);
 

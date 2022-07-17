@@ -18,6 +18,7 @@ First, edit `testProfile.py`. Inside, change the two variable declarations:
     ```python
     clientId = 'Your client ID';
     clientSecret = 'Your client secret';
+    ```
 
 to reflect your clientID and secret, e.g.
 
