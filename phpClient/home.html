@@ -10,11 +10,12 @@
         window.subless = Subless;
         //Perform any actions you want to fire after subless is loaded into the page
         loginVisible();
+        Subless.sublessShowBanner();
     </script>
 
 </head>
 
-<body>
+<body style="background-color: grey;">
     Welcome to the subless php sample client.
     <br />
     <button id="btnLogin" onclick="subless.sublessLogin()">Login to subless</button>
@@ -28,6 +29,7 @@
             document.getElementById('btnLogout').hidden = !loggedIn;
         }
     </script>
+    <div id="sublessBanner"></div>
 </body>
 
 </html>
