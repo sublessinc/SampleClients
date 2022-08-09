@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
     return current_app.send_static_file("index.html")
 
-@app.route("/profile/TestUser")
-def TestUser():
-    return testProfile.GenerateUserProfile()
+@app.route("/profile/<username>")
+def TestUser(username):
+    return testProfile.GenerateUserProfile(username)
 
 # To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
 # Once you've set up and deployed your API, register the URI on your subless partner account page.
