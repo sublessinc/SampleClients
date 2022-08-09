@@ -36,7 +36,7 @@ def GetAClientCredentialsToken():
 
     sublessPaymentsUrl = os.getenv("SublessUrl")
     if sublessPaymentsUrl == None:
-        sublessPaymentsUrl = 'https://pay.subless.com'
+        sublessPaymentsUrl = 'https://app.subless.com'
 
     print(f'sublessPaymentsUrl {sublessPaymentsUrl}', flush=True)
 
