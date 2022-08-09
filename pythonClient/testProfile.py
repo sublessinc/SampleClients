@@ -11,10 +11,9 @@ from flask import render_template
 clientId = 'Your client ID'
 clientSecret = 'Your client secret'
 
-username = 'TestUser'
-sublessPaymentsUrl = 'https://app.subless.com'
-sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com'
-
+username = 'TestUser';
+sublessPaymentsUrl = 'https://app.subless.com';
+sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
 
 def GetAClientCredentialsToken():
     global clientSecret
@@ -59,7 +58,6 @@ def GetAClientCredentialsToken():
 
     token = r.json()["access_token"]
     return token
-
 
 def RequestOneTimeRegistrationActivationCode(bearerToken, currentUser):
     r = requests.post(sublessPaymentsUrl + "/api/Partner/CreatorRegister?username=" + currentUser,
