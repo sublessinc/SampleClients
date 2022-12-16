@@ -11,9 +11,9 @@ from flask import render_template
 clientId = 'Your client ID'
 clientSecret = 'Your client secret'
 
-username = 'TestUser';
-sublessPaymentsUrl = 'https://app.subless.com';
-sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
+username = 'TestUser'
+sublessPaymentsUrl = 'https://app.subless.com'
+sublessAuthUrl = 'https://login.subless.com'
 
 def GetAClientCredentialsToken():
     global clientSecret
