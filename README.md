@@ -3,9 +3,9 @@
 Please note, subless is *currently* available for integration to only to select partners. To inquire about partnership, email contact@subless.com
 
 There are three key integration points to make subless function with your content hosting site: 
-A javascript module for login/logout and hit tracking
-An API integration for registering new creators
-An optional api+webhook integration for receiving and retreiving changes to creator information
+* A javascript module for login/logout and hit tracking
+* An API integration for registering new creators
+* An optional api+webhook integration for receiving and retreiving changes to creator information
 
 ## subless.js
 To enable subless.js on your page, start by adding the javascript module
@@ -47,7 +47,7 @@ Finally, call the function once the subless library has loaded
     </script>
 
 ### hit tracking
-To enable hit tracking for subless subscribers, you'll simply need to make subless.js available on pages with creator content
+To enable hit tracking for subless subscribers, make subless.js available on pages with creator content
 
     <head>
         <script type="module">
