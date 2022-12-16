@@ -91,5 +91,17 @@ The activation code is time sensitive, so we recommend you only generate it once
 ## Optional features
 
 ### Webhooks
+Update your webhook address in your partner profile
 
-### Creator Status Display
+![WebhookSettings](./webhook.png)
+
+When a creator linked to your partner account is actived on our site, a webhook will fire to that address with the following payload
+
+            {
+                Active = true,
+                Email = "",
+                Id = "",
+                IsDeleted = false,
+                PartnerId = "",
+                Username = ""
+            };
