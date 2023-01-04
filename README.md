@@ -105,3 +105,42 @@ When a creator linked to your partner account is actived on our site, a webhook 
                 PartnerId = "",
                 Username = ""
             };
+
+
+## Validating your partner integration
+
+### Sign-ins and Sign-outs
+Users must be able to authenticate from partner pages
+* Navigate to a page on your partner site that shows the subless login button
+* Click the subless login button
+* **Verify you are redirected to the subless login page**
+* Sign into an existing subless account, or create a new one
+* Return to your partner site
+* **Verify that the subles sign-in button is no longer visible**
+* **Verify that the subles sign-out button is visible**
+* Click the subless sign out button
+* **Verify that the subles sign-out button is no longer visible**
+* **Verify that the subles sign-in button is visible**
+
+### Creator registration
+Creators must be able to link thier partner accounts to their subless accounts
+* Sign into a creator account
+* Click the button to link your creator to a subless account
+* **Verify you are redirected to the subless login page**
+* Create a new subless account, or sign into an existing one
+* **Verify you are prompted to enter a payout address**
+* **Verify you are *not* prompted to pay for subless**
+* Enter a payout email address and click save
+* **Verify you are redirected back to your parter site**
+
+
+### Hit registration
+Patrons must be able to have visits to creators on your site registered for their monthly payouts
+* Register a creator as described above
+* Sign out of your creator account
+* Create a new patron account, and register a payment. If you're in a lower environment, you can use the [card info for stripe testing](https://stripe.com/docs/testing#testing-interactively)
+* While logged in with that patron, visit some content on your site posted by the creator you registered
+* Visit the subless profile of your patron account, (for example, https://app.subless.com/user-profile in production)
+* **Verify that your "content views this month" have a nonzero value**
+* Visit the creator content again, refreshing the page if it's still open
+* **Verify that "content views this month" have increased by one**
