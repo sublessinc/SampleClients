@@ -116,11 +116,11 @@ Users must be able to authenticate from partner pages
 * **Verify you are redirected to the subless login page**
 * Sign into an existing subless account, or create a new one
 * Return to your partner site
-* **Verify that the subles sign-in button is no longer visible**
-* **Verify that the subles sign-out button is visible**
+* **Verify that the subless sign-in button is no longer visible**
+* **Verify that the subless sign-out button is visible**
 * Click the subless sign out button
-* **Verify that the subles sign-out button is no longer visible**
-* **Verify that the subles sign-in button is visible**
+* **Verify that the subless sign-out button is no longer visible**
+* **Verify that the subless sign-in button is visible**
 
 ### Creator registration
 Creators must be able to link thier partner accounts to their subless accounts
