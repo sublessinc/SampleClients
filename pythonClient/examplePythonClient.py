@@ -13,6 +13,10 @@ def index():
 def TestUser(username):
     return testProfile.GenerateUserProfile(username)
 
+@app.route("/taggedContent")
+def TaggedContent():
+    return testProfile.GenerateUserProfile("creatorTaggedUsername")
+
 # To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
 # Once you've set up and deployed your API, register the URI on your subless partner account page.
 @app.route('/webhook', methods=['POST'])
