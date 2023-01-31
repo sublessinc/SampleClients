@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Subless Python sample</title>
+    <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
+    <script type="module">
+        // for tag tracking, just import this class instead of the default export
+        import { SublessUsingTags } from 'https://localhost:4200/dist/subless2.0.js';
+        SublessUsingTags();
+    </script>
+</head>
+
+    <body>
+        <subless creatorName="{{creatorUsername}}"></p>
+        Here's some content from {{creatorUsername}}. If you're logged in and paying, a hit will have been pushed for that user.
+    </body>

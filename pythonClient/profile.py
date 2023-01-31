@@ -72,17 +72,17 @@ def RequestOneTimeRegistrationActivationCode(bearerToken, currentUser):
 
 def GenerateOneTimeLink(activationCode):
     protocol = "https://"
-    postActivationRedirect = protocol + "localhost:5000/"
+    postActivationRedirect = protocol + "pythonClientDev.subless.com/"
     finalLink = sublessPaymentsUrl + "/login?activation=" + activationCode +\
         "&postActivationRedirect=" + postActivationRedirect
     return finalLink
 
 
-def GenerateUserProfile(usernameOverride):
+def GenerateUserProfile(username):
 
-    username = usernameOverride
     clientCredentialsToken = GetAClientCredentialsToken()
     activationCode = RequestOneTimeRegistrationActivationCode(
         clientCredentialsToken, username)
     userRegistrationLink = GenerateOneTimeLink(activationCode)
     return render_template('profile.html', creator_link=userRegistrationLink)
+

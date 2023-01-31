@@ -13,7 +13,7 @@ Requirements:
 
 # Running the example
 
-First, edit `testProfile.py`. Inside, change the two variable declarations:
+First, edit `profile.py`. Inside, change the two variable declarations:
 
 ```python
     clientId = 'Your client ID';
@@ -32,7 +32,7 @@ Then, to run on your local machine directly, run the commands:
 
 ```shell
     pip install -r resources.txt
-    export FLASK_APP=examplePythonClient
+    export FLASK_APP=pythonClient
     flask run
 ```
 Alternatively, to run using Docker:

@@ -5,12 +5,12 @@
     <title>Subless Python sample</title>
     <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
     <script type="module">
-        import sublessTagTracking from 'https://localhost:4200/dist/subless.js';
+        import { SublessUsingUris} from 'https://localhost:4200/dist/subless2.0.js';
         //Make the subless object available to the rest of your javascript
-        window.subless = sublessTagTracking;
+        window.subless = subless;
         //Perform any actions you want to fire after subless is loaded into the page
         loginVisible();
-        sublessTagTracking.sublessShowBanner();
+        subless.sublessShowBanner();
     </script>
 
 </head>
@@ -20,7 +20,12 @@
     <br />
     <button id="btnLogin" onclick="subless.sublessLogin()">Login to subless</button>
     <button id="btnLogout" onclick="subless.sublessLogout()">Logout of subless</button>
-    <a href='./profile/TestUser'>View your profile</a>
+    <br/>
+    <a href='./profile/TestUser'>View a profile for a test user</a>
+    <br/>
+    <a href='./tagContent/TestUser'>Push a hit for content using tags</a>
+    <br/>
+    <a href='./uriContent/TestUser'>Push a hit for content using its URI</a>
     <script type="text/javascript" async>
         async function loginVisible() {
             let loggedIn = await subless.subless_LoggedIn();

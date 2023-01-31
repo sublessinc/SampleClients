@@ -1,21 +1,27 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask.globals import current_app
-import testProfile
+
+import profile
 import json
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return current_app.send_static_file("index.html")
+    return current_app.send_static_file("login.html")
 
 @app.route("/profile/<username>")
 def TestUser(username):
-    return testProfile.GenerateUserProfile(username)
+    return profile.GenerateUserProfile(username)
 
-@app.route("/taggedContent")
-def TaggedContent():
-    return testProfile.GenerateUserProfile("creatorTaggedUsername")
+@app.route("/tagContent/<username>")
+def TagContent(username):
+    return render_template('tagContent.html', creatorUsername=username)
+
+@app.route("/uriContent/<username>")
+def UriContent(username):
+    return render_template('uriContent.html', creatorUsername=username)
+
 
 # To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
 # Once you've set up and deployed your API, register the URI on your subless partner account page.
