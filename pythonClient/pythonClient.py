@@ -22,6 +22,10 @@ def TagContent(username):
 def UriContent(username):
     return render_template('uriContent.html', creatorUsername=username)
 
+@app.route("/legacyContent/<username>")
+def LegacyContent(username):
+    return render_template('legacyContent.html', creatorUsername=username)
+
 
 # To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
 # Once you've set up and deployed your API, register the URI on your subless partner account page.
