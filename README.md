@@ -10,12 +10,10 @@ There are three key integration points to make subless function with your conten
 ## subless.js
 To enable subless.js on your page, start by adding the javascript module
 
-    <head>
-        <script type="module">
-            import Subless from 'https://app.subless.com/dist/subless.js';
-            window.subless = Subless;
-        </script>
-    </head>
+    <script type="module">
+        import { SublessUsingUris } from 'https://app.subless.com/dist/subless2.0.js';
+        window.subless = SublessUsingUris();
+    </script></head>
 
 Embedding subless.js will allow you to make a few key requests for your integration
 
@@ -39,26 +37,46 @@ And then add a function to show/hide them based on whether the current user is l
 Finally, call the function once the subless library has loaded
 
     <script type="module">
-        import Subless from 'https://app.subless.com/dist/subless.js';
+        import { SublessUsingUris } 'https://app.subless.com/dist/subless2.0.js';
         //Make the subless object available to the rest of your javascript
-        window.subless = Subless;
-        //Perform any actions you want to fire after subless is loaded into the page
+        window.subless = SublessUsingUris();
+        //Perform any actions you want to fire after subless is loaded into the page, for example, to show or hide the login buttons
         loginVisible();
     </script>
 
 ### hit tracking
-To enable hit tracking for subless subscribers, make subless.js available on pages with creator content
+
+#### Using URIs
+To enable hit tracking for subless subscribers based on the content URI, make subless.js available on pages with creator content, 
+and load the export for URI tracking
 
     <head>
         <script type="module">
-            import Subless from 'https://app.subless.com/dist/subless.js';
-            window.subless = Subless;
+            import { SublessUsingUris } 'https://app.subless.com/dist/subless2.0.js';
+            window.subless = SublessUsingUris();
         </script>
     </head>
 
 For hits to be registered, ***the creator username must appear in the URI***
 
 On all pages with that module enabled, subless will be notified of the URI when a logged-in subscriber visits the page. Hits will be recorded if that creator is also registered with subless.
+
+#### Using Tags
+To enable hit tracking for subless subscribers based tags contained in the page, make subless.js available on pages with creator content, 
+and load the export for tag tracking
+
+    <head>
+        <script type="module">
+            import { SublessUsingTags } 'https://app.subless.com/dist/subless2.0.js';
+            window.subless = SublessUsingTags();
+        </script>
+    </head>
+
+Then, add subless tags for each creator whose content appears on the page
+    
+    <subless creatorName="{{creatorUsername}}"/>
+
+For hits to be registered, ***these tags must appear on the page***
 
 ## Creator activation
 To register a creator, you'll make an API call to us with that creator's username, receive an activation code from us for that creator, and then redirect that creator to us with that activation code

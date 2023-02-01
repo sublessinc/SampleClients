@@ -12,7 +12,7 @@ clientId = 'Your client ID'
 clientSecret = 'Your client secret'
 
 username = 'TestUser'
-sublessPaymentsUrl = 'https://localhost:4200'
+sublessPaymentsUrl = 'https://app.subless.com'
 sublessAuthUrl = 'https://login.subless.com'
 
 def GetAClientCredentialsToken():
@@ -35,7 +35,7 @@ def GetAClientCredentialsToken():
 
     sublessPaymentsUrl = os.getenv("SublessUrl")
     if sublessPaymentsUrl == None:
-        sublessPaymentsUrl = 'https://localhost:4200'
+        sublessPaymentsUrl = 'https://app.subless.com'
 
     print(f'sublessPaymentsUrl {sublessPaymentsUrl}', flush=True)
 
