@@ -162,3 +162,8 @@ Patrons must be able to have visits to creators on your site registered for thei
 * **Verify that your "content views this month" have a nonzero value**
 * Visit the creator content again, refreshing the page if it's still open
 * **Verify that "content views this month" have increased by one**
+
+
+### Upgrading from subless.js to subless2.0.js
+
+ TODO: Complete upgrade guide
