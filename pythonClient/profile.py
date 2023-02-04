@@ -30,7 +30,7 @@ def GetAClientCredentialsToken():
 
     sublessAuthUrl = os.getenv("issuerUrl")
     if sublessAuthUrl == None:
-        sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com'
+        sublessAuthUrl = 'https://login.subless.com'
     print(f'sublessAuthUrl {sublessAuthUrl}', flush=True)
 
     sublessPaymentsUrl = os.getenv("SublessUrl")
@@ -72,7 +72,7 @@ def RequestOneTimeRegistrationActivationCode(bearerToken, currentUser):
 
 def GenerateOneTimeLink(activationCode):
     protocol = "https://"
-    postActivationRedirect = protocol + "pythonClientDev.subless.com/"
+    postActivationRedirect = protocol + "localhost:5000/"
     finalLink = sublessPaymentsUrl + "/login?activation=" + activationCode +\
         "&postActivationRedirect=" + postActivationRedirect
     return finalLink

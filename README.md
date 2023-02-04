@@ -166,4 +166,29 @@ Patrons must be able to have visits to creators on your site registered for thei
 
 ### Upgrading from subless.js to subless2.0.js
 
- TODO: Complete upgrade guide
+* Replace the module imports
+
+        <script type="module" src='https://app.subless.com/dist/subless.js'>
+        </script>
+
+    should be replaced with 
+
+        <script type="module">
+            import { SublessUsingUris } from 'https://app.subless.com/dist/subless2.0.js';
+            SublessUsingUris();
+        </script>
+
+
+* Replace subless object initialization for access in other scripts, such as in login and logout
+
+        <script type="module">
+            import Subless from 'https://app.subless.com/dist/subless.js';
+            window.subless = Subless;
+        </script>
+
+    should be replaced with 
+
+        <script type="module">
+            import { SublessUsingUris } 'https://app.subless.com/dist/subless2.0.js';
+            window.subless = SublessUsingUris();
+        </script>
