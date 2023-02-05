@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Subless Python sample</title>
+    <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
+    <script type="module">
+        import { SublessUsingUris } from 'https://app.subless.com/dist/subless2.0.js';
+        SublessUsingUris();
+    </script></head>
+
+<body>
+    Here's some content using subless.js 1.0 from {{creatorUsername}}. If you're logged in and paying, a hit will have been pushed for that user.
+</body>

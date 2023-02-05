@@ -2,8 +2,11 @@
 <html>
 <head>
     <title>Subless PHP sample</title>
-    <!-- Load subless.js onto pages with content owned by a particular creator to automatically track a user -->
-    <script type="module" src= 'https://dev.subless.com/dist/subless.js'></script>
+    <!-- Load subless2.0.js onto pages with content owned by a particular creator to automatically track a user -->
+    <script type="module">
+        import { SublessUsingUris } from 'https://app.subless.com/dist/subless2.0.js';
+        SublessUsingUris();
+    </script></head>
 </head>
 <body>
 Welcome to your profile
@@ -13,8 +16,8 @@ Welcome to your profile
 $username = 'TestUser';
 $clientId = 'PARTNER CLIENT ID';
 $clientSecret = 'PARTNER CLIENT SECRET';
-$sublessPaymentsUrl = 'https://pay.subless.com';
-$sublessAuthuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com';
+$sublessPaymentsUrl = 'https://app.subless.com';
+$sublessAuthuthUrl = 'https://login.subless.com';
 ?>
 
 <?php

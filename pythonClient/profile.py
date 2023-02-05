@@ -30,7 +30,7 @@ def GetAClientCredentialsToken():
 
     sublessAuthUrl = os.getenv("issuerUrl")
     if sublessAuthUrl == None:
-        sublessAuthUrl = 'https://subless-test.auth.us-east-1.amazoncognito.com'
+        sublessAuthUrl = 'https://login.subless.com'
     print(f'sublessAuthUrl {sublessAuthUrl}', flush=True)
 
     sublessPaymentsUrl = os.getenv("SublessUrl")
@@ -78,11 +78,11 @@ def GenerateOneTimeLink(activationCode):
     return finalLink
 
 
-def GenerateUserProfile(usernameOverride):
+def GenerateUserProfile(username):
 
-    username = usernameOverride
     clientCredentialsToken = GetAClientCredentialsToken()
     activationCode = RequestOneTimeRegistrationActivationCode(
         clientCredentialsToken, username)
     userRegistrationLink = GenerateOneTimeLink(activationCode)
     return render_template('profile.html', creator_link=userRegistrationLink)
+
