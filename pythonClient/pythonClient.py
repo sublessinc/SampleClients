@@ -3,12 +3,16 @@ from flask.globals import current_app
 
 import profile
 import json
+import os
 
 app = Flask(__name__)
+sublessPaymentsUrl = os.getenv("SublessUrl")
+if sublessPaymentsUrl == None:
+    sublessPaymentsUrl = 'https://app.subless.com'
 
 @app.route("/")
 def index():
-    return current_app.send_static_file("login.html")
+    return render_template('login.html', sublessPaymentsUrl=sublessPaymentsUrl)
 
 @app.route("/profile/<username>")
 def TestUser(username):
@@ -16,15 +20,15 @@ def TestUser(username):
 
 @app.route("/tagContent/<username>")
 def TagContent(username):
-    return render_template('tagContent.html', creatorUsername=username)
+    return render_template('tagContent.html', creatorUsername=username, sublessPaymentsUrl=sublessPaymentsUrl)
 
 @app.route("/uriContent/<username>")
 def UriContent(username):
-    return render_template('uriContent.html', creatorUsername=username)
+    return render_template('uriContent.html', creatorUsername=username, sublessPaymentsUrl=sublessPaymentsUrl)
 
 @app.route("/legacyContent/<username>")
 def LegacyContent(username):
-    return render_template('legacyContent.html', creatorUsername=username)
+    return render_template('legacyContent.html', creatorUsername=username, sublessPaymentsUrl=sublessPaymentsUrl)
 
 
 # To be notified when creators link their account for your site to subless, set up a webhook to recieve a post call.
