@@ -2,7 +2,7 @@ import requests
 import os
 from requests.api import head
 from requests.auth import HTTPBasicAuth
-from flask import render_template
+from flask import render_template, request
 
 # THESE TWO VALUES will be provided to you as part
 # of your subless account. See: readme.md
@@ -71,8 +71,7 @@ def RequestOneTimeRegistrationActivationCode(bearerToken, currentUser):
 
 
 def GenerateOneTimeLink(activationCode):
-    protocol = "https://"
-    postActivationRedirect = protocol + "localhost:5000/"
+    postActivationRedirect = request.base_url
     finalLink = sublessPaymentsUrl + "/login?activation=" + activationCode +\
         "&postActivationRedirect=" + postActivationRedirect
     return finalLink
